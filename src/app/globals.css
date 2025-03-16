@@ -7,7 +7,7 @@
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
-	--font-sans: var(--font-rubik-sans);
+	--font-sans: var(--font-pragmatica-sans);
 	--color-sidebar-ring: var(--sidebar-ring);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -117,10 +117,10 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-background text-foreground font-sans antialiased absolute inset-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px];
+		@apply bg-background text-foreground font-sans font-medium antialiased;
 	}
 
 	strong {
-		@apply font-[470];
+		@apply font-semibold;
 	}
 }

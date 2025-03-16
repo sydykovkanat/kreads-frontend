@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Home() {
 	return (
-		<div className={'max-w-lg mx-auto mt-20 mb-4 space-y-2 px-4'}>
+		<div className={'space-y-2'}>
 			<h1 className={'text-2xl'}>История Каната и Айдай:</h1>
 
 			<p>
@@ -67,9 +67,3 @@ export default function Home() {
 		</div>
 	);
 }
-
-/*
-
-
-
- */
