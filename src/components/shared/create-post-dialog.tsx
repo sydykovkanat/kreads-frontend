@@ -33,6 +33,8 @@ import { useCreatePost } from '@/hooks/queries/post/use-create-post';
 import { IPostInput } from '@/shared/types/post.interface';
 
 export function CreatePostDialog({ children }: PropsWithChildren) {
+	const [isOpen, setIsOpen] = useState(false);
+
 	const imageInputRef = useRef<HTMLInputElement | null>(null);
 	const [imagePreviews, setImagePreviews] = useState<string[]>([]); // Для хранения URL для предварительного просмотра
 
@@ -57,6 +59,9 @@ export function CreatePostDialog({ children }: PropsWithChildren) {
 		}
 
 		createPost(formData);
+
+		setIsOpen(false);
+		form.reset();
 	};
 
 	const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -86,7 +91,7 @@ export function CreatePostDialog({ children }: PropsWithChildren) {
 	};
 
 	return (
-		<Drawer>
+		<Drawer open={isOpen} onOpenChange={setIsOpen}>
 			<DrawerTrigger asChild>{children}</DrawerTrigger>
 			<DrawerContent
 				className={'max-w-[600px] mx-auto bg-neutral-900/80 backdrop-blur-2xl'}
@@ -177,7 +182,9 @@ export function CreatePostDialog({ children }: PropsWithChildren) {
 						/>
 
 						<DrawerFooter className={'px-0'}>
-							<Button className={'h-11'}>Опубликовать 👌</Button>
+							<Button className={'h-11'} disabled={isLoadingCreate}>
+								Опубликовать 👌
+							</Button>
 							<DrawerClose asChild>
 								<Button className={'h-11'} variant='outline'>
 									Закрыть ❌
