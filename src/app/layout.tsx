@@ -1,17 +1,11 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import React, { ReactNode } from 'react';
 
-import { Container } from '@/components/shared';
+import { Providers } from '@/app/providers';
 
 import { SITE_DESCRIPTION, SITE_NAME } from '@/constants/seo.constants';
 
 import './globals.css';
-
-const pragmatica = localFont({
-	src: '../fonts/Pragmatica.ttf',
-	variable: '--font-pragmatica-sans',
-});
 
 export const metadata: Metadata = {
 	title: {
@@ -27,9 +21,9 @@ export default function RootLayout({
 	children: ReactNode;
 }>) {
 	return (
-		<html lang='ru'>
-			<body className={pragmatica.variable}>
-				<Container>{children}</Container>
+		<html lang={'ru'} className={'dark'}>
+			<body>
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);
